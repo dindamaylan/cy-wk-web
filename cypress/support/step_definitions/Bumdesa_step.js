@@ -39,3 +39,7 @@ Then('Bumdesa melihat informasi tambah umkm {string} {string} {string} {string} 
 When('Bumdesa klik tombol hapus umkm', () => {
     dashBPO.clickBtnHapusUmkm();
 })
+
+Then('Bumdesa melihat informasi hapus umkm', () =>{
+    dashBPO.getInfromasiHapusUmkm();
+})

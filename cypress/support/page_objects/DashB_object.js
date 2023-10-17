@@ -165,7 +165,15 @@ class DashB_object {
 
   clickBtnHapusUmkm(){
     cy.xpath("//table[@id='DataTables_Table_0']/tbody/tr[1]//a[@title='Delete']").click()
-    cy.xpath('//iframe[@id="iframeResult"]').its('0.contentDocument.body').then(cy.wrap).xpath('//button[text()="OK"]').click();
+    cy.on('window:confirm',(txt)=>{
+      //Assertion
+      expect('Yakin ingin menghapus?').to.contains(txt);
+    })
+    cy.on('window:confirm', () => true)
+  }
+
+  getInfromasiHapusUmkm(){
+    cy.get('.swal2-header').should("contain.text", "Data berhasil dihapus")
   }
 }
 export default DashB_object;

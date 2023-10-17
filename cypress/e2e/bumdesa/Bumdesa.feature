@@ -42,4 +42,4 @@ Feature: Bumdesa
         And Bumdesa klik validasi tambah umkm
         And Bumdesa mencari nama umkm 'umkm cy hapus'
         And Bumdesa klik tombol hapus umkm
-        # Then Bumdesa melihat informasi hapus umkm
+        Then Bumdesa melihat informasi hapus umkm

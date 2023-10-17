@@ -145,7 +145,9 @@ class DashB_object {
   }
 
   setDeskripsiUmkm(deskripsi) {
-    const inputDeskripsi = cy.get("form#form-add-umkm  textarea[name='description']");
+    const inputDeskripsi = cy.get(
+      "form#form-add-umkm  textarea[name='description']"
+    );
     if (!deskripsi) {
       inputDeskripsi.focus().blur();
     } else {
@@ -156,29 +158,39 @@ class DashB_object {
   clickBtnValidationTambahUmkm() {
     cy.xpath(
       "//div[@id='modal-add-umkm']//button[@class='btn btn-primary ms-auto']"
-    ).click().wait(3000);
+    )
+      .click()
+      .wait(3000);
   }
 
   getInfromasiTambahUmkm(namaUmkm, alamat, nomorWa, deskripsi, message) {
     cy.get("#swal2-content").should("contain.text", message);
   }
 
-  clickBtnHapusUmkm(){
-    cy.xpath("//table[@id='DataTables_Table_0']/tbody/tr[1]//a[@title='Delete']").click()
-    cy.on('window:confirm',(txt)=>{
+  clickBtnHapusUmkm() {
+    cy.xpath(
+      "//table[@id='DataTables_Table_0']/tbody/tr[1]//a[@title='Delete']"
+    ).click();
+    cy.on("window:confirm", (txt) => {
       //Assertion
-      expect('Yakin ingin menghapus?').to.contains(txt);
-    })
-    cy.on('window:confirm', () => true)
+      expect("Yakin ingin menghapus?").to.contains(txt);
+    });
+    cy.on("window:confirm", () => true);
   }
 
-  getInfromasiUDUmkm(message){
-    cy.get('.swal2-header').should("contain.text", message)
+  getInfromasiUDUmkm(message) {
+    cy.get(".swal2-header").should("contain.text", message);
   }
 
-  clickBtnEditUmkm(){
-    cy.xpath("//table[@id='DataTables_Table_0']/tbody/tr[1]/td[@class='text-center']/div[@class='btn-group']/button[@title='Edit']").click().wait(3000);
-    cy.xpath("//div[@class='table-responsive']/div[1]/div[@role='document']//h5[@class='modal-title']")
+  clickBtnEditUmkm() {
+    cy.xpath(
+      "//table[@id='DataTables_Table_0']/tbody/tr[1]/td[@class='text-center']/div[@class='btn-group']/button[@title='Edit']"
+    )
+      .click()
+      .wait(3000);
+    cy.xpath(
+      "//div[@class='table-responsive']/div[1]/div[@role='document']//h5[@class='modal-title']"
+    )
       .invoke("text")
       .then((text) => {
         const trimmedText = text.trim();
@@ -186,26 +198,154 @@ class DashB_object {
       });
   }
 
-  clickBtnValidationUbahUmkm(){
+  clickBtnValidationUbahUmkm() {
     cy.xpath(
       "//div[1]/div[@role='document']//button[@class='btn btn-primary ms-auto']"
-    ).click().wait(3000);
+    )
+      .click()
+      .wait(3000);
   }
 
-  updateUmkm(namaUmkm, alamat, noWa, deskripsi){
+  updateUmkm(namaUmkm, alamat, noWa, deskripsi) {
     this.updateNamaUmkm(namaUmkm);
     this.updateAlamatUmkm(alamat);
     this.updateNoWaUmkm(noWa);
     this.updateDeskripsiUmkm(deskripsi);
   }
 
-  updateDeskripsiUmkm(deskripsi){
-    const inputDeskripsi = cy.xpath("//div[1]/div[@role='document']//textarea[@name='description']")
+  updateDeskripsiUmkm(deskripsi) {
+    const inputDeskripsi = cy.xpath(
+      "//div[1]/div[@role='document']//textarea[@name='description']"
+    );
     if (!deskripsi) {
       inputDeskripsi.focus().blur();
     } else {
-      inputDeskripsi.type(deskripsi);
+      inputDeskripsi.clear().click().type(deskripsi);
     }
+  }
+
+  //inventory
+  clickMenuInventory() {
+    cy.get(this.menu[3]).click();
+  }
+
+  onMenuInventory() {
+    //assert title daftar inventory
+    cy.get("h1")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Inventori").to.equal(trimmedText);
+      });
+
+    //assert button tambah barang inventory
+    cy.xpath("//nav/div[@href='#']/button[@type='button']")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tambah Barang").to.equal(trimmedText);
+      });
+
+    //assert data table
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[1]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("No").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[2]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Gambar Produk").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[3]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Nama Produk").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[4]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("No. PIRT").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[5]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("No. BPOM").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[6]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Halal").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[7]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("SKU").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[8]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Stok").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[9]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Harga Beli").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[10]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Harga Jual").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[11]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tipe Unit Maksimal").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[12]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tipe Unit Minimal").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[13]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Deskripsi").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[14]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Aksi").to.equal(trimmedText);
+      });
+
+      
   }
 }
 export default DashB_object;

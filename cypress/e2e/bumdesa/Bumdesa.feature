@@ -10,9 +10,9 @@ Feature: Bumdesa
         Then Saya melihat halaman dashboard BUMDesa
 
     @manajemen-umkm
-    # Scenario: BUMDesa menuju menu umkm
-    #     When Bumdesa klik menu umkm
-    #     Then Bumdesa melihat halaman umkm
+    Scenario: BUMDesa menuju menu umkm
+        When Bumdesa klik menu umkm
+        Then Bumdesa melihat halaman umkm
 
     # Scenario: BUMDesa mencari umkm
     #     When Bumdesa klik menu umkm
@@ -32,7 +32,7 @@ Feature: Bumdesa
     #     Then Bumdesa melihat informasi tambah umkm '<namaUmkm>' '<alamat>' '<nomorWa>' '<deskripsi>' '<message>'
     #     Examples:
     #         | namaUmkm | alamat | nomorWa   | deskripsi    | message                 |
-    #         # | umkm cy  | cy     | 082137102 | test positif | UMKM Berhasil Ditambahkan |
+    #         | umkm cy  | cy     | 082137102 | test positif | UMKM Berhasil Ditambahkan |
     #         | umkm cy  | cy     | nomor     | negatif      | No Wa harus angka    |
 
     # Scenario: Bumdesa menghapus data UMKM
@@ -44,10 +44,16 @@ Feature: Bumdesa
     #     And Bumdesa klik tombol hapus umkm
     #     Then Bumdesa melihat informasi hapus umkm 'Data berhasil dihapus'
 
-    Scenario: Bumdesa edit data UMKM
-        When Bumdesa klik menu umkm
-        And Bumdesa mencari nama umkm 'umkm cy'
-        And Bumdesa klik tombol edit umkm
-        And Bumdesa mengubah deskripsi umkm ' U'
-        And Bumdesa klik tombol validasi ubah data umkm
-        Then Bumdesa melihat informasi ubah deskripsi umkm 'Update data umkm berhasil'
+    # Scenario: Bumdesa edit data UMKM
+    #     When Bumdesa klik menu umkm
+    #     And Bumdesa mencari nama umkm 'umkm cy'
+    #     And Bumdesa klik tombol edit umkm
+    #     And Bumdesa mengubah deskripsi umkm ' U'
+    #     And Bumdesa klik tombol validasi ubah data umkm
+    #     Then Bumdesa melihat informasi ubah deskripsi umkm 'Update data umkm berhasil'
+
+    @manajemen-inventory
+    Scenario: Bumdesa menuju menu inventory
+        When Bumdesa klik menu inventory
+        Then Bumdesa melihat halaman inventory
+        

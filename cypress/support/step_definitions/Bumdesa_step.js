@@ -60,3 +60,11 @@ When('Bumdesa klik tombol validasi ubah data umkm', ()=>{
 Then('Bumdesa melihat informasi ubah deskripsi umkm {string}', (message) =>{
     dashBPO.getInfromasiUDUmkm(message);
 })
+
+When('Bumdesa klik menu inventory', () => {
+    dashBPO.clickMenuInventory();
+})
+
+Then('Bumdesa melihat halaman inventory', () => {
+    dashBPO.onMenuInventory();
+})

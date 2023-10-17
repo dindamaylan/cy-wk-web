@@ -8,5 +8,5 @@ When('Pengguna mengakses url halaman dashboard tanpa login', () => {
 })
 
 Then('Pengguna diarahkan ke halaman login', () =>{
-    cy.url("https://waroengkita.id/login")
+    cy.url().should('include', 'login')
 })

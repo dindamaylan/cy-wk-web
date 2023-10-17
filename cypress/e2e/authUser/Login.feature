@@ -22,7 +22,7 @@ Feature: Login
 
         Examples:
             | email               | password |
-            | admintest@gmail.com | 12345678 |
+            | admin-bumdes@gmail.com | 12345678 |
 
     Scenario: Pengguna mencoba login dengan tidak baik dan tidak benar
         When Saya masukan email '<email>' dan password '<password>'

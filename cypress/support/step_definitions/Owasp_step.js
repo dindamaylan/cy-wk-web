@@ -10,3 +10,7 @@ When('Pengguna mengakses url halaman dashboard tanpa login', () => {
 Then('Pengguna diarahkan ke halaman login', () =>{
     cy.url().should('include', 'login')
 })
+
+When('Saya akses halaman kategori produk', () =>{
+    basePO.nav("admin/kategori")
+})

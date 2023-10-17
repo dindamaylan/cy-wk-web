@@ -1,0 +1,5 @@
+{
+  "baseUrl" : "https://waroengkita.id/",
+  "errMsgBlank" : "This field is required.",
+  "errMsgEmailFormat" : "Please enter a valid email address."
+}

@@ -105,9 +105,9 @@ class DashB_object {
 
   setDataUmkm(namaUmkm, alamat, noWa, deskripsi) {
     this.setNamaUmkm(namaUmkm);
-    this.setAlamat(alamat);
-    this.setNoWa(noWa);
-    this.setDeskripsi(deskripsi);
+    this.setAlamatUmkm(alamat);
+    this.setNoWaUmkm(noWa);
+    this.setDeskripsiUmkm(deskripsi);
   }
 
   setNamaUmkm(namaUmkm) {
@@ -118,7 +118,7 @@ class DashB_object {
     }
   }
 
-  setAlamat(alamat) {
+  setAlamatUmkm(alamat) {
     const inputAlamat = cy.get("form#form-add-umkm  input[name='address']");
     if (!alamat) {
       inputAlamat.focus().blur();
@@ -127,7 +127,7 @@ class DashB_object {
     }
   }
 
-  setNoWa(noWa) {
+  setNoWaUmkm(noWa) {
     const inputNoWa = cy.get("form#form-add-umkm  input[name='wa_number']");
     if (!noWa) {
       inputNoWa.focus().blur();
@@ -144,7 +144,7 @@ class DashB_object {
     }
   }
 
-  setDeskripsi(deskripsi) {
+  setDeskripsiUmkm(deskripsi) {
     const inputDeskripsi = cy.get("form#form-add-umkm  textarea[name='description']");
     if (!deskripsi) {
       inputDeskripsi.focus().blur();
@@ -172,8 +172,40 @@ class DashB_object {
     cy.on('window:confirm', () => true)
   }
 
-  getInfromasiHapusUmkm(){
-    cy.get('.swal2-header').should("contain.text", "Data berhasil dihapus")
+  getInfromasiUDUmkm(message){
+    cy.get('.swal2-header').should("contain.text", message)
+  }
+
+  clickBtnEditUmkm(){
+    cy.xpath("//table[@id='DataTables_Table_0']/tbody/tr[1]/td[@class='text-center']/div[@class='btn-group']/button[@title='Edit']").click().wait(3000);
+    cy.xpath("//div[@class='table-responsive']/div[1]/div[@role='document']//h5[@class='modal-title']")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Edit Umkm").to.equal(trimmedText);
+      });
+  }
+
+  clickBtnValidationUbahUmkm(){
+    cy.xpath(
+      "//div[1]/div[@role='document']//button[@class='btn btn-primary ms-auto']"
+    ).click().wait(3000);
+  }
+
+  updateUmkm(namaUmkm, alamat, noWa, deskripsi){
+    this.updateNamaUmkm(namaUmkm);
+    this.updateAlamatUmkm(alamat);
+    this.updateNoWaUmkm(noWa);
+    this.updateDeskripsiUmkm(deskripsi);
+  }
+
+  updateDeskripsiUmkm(deskripsi){
+    const inputDeskripsi = cy.xpath("//div[1]/div[@role='document']//textarea[@name='description']")
+    if (!deskripsi) {
+      inputDeskripsi.focus().blur();
+    } else {
+      inputDeskripsi.type(deskripsi);
+    }
   }
 }
 export default DashB_object;

@@ -35,11 +35,19 @@ Feature: Bumdesa
     #         # | umkm cy  | cy     | 082137102 | test positif | UMKM Berhasil Ditambahkan |
     #         | umkm cy  | cy     | nomor     | negatif      | No Wa harus angka    |
 
-    Scenario: Bumdesa menghapus data UMKM
+    # Scenario: Bumdesa menghapus data UMKM
+    #     When Bumdesa klik menu umkm
+    #     And Bumdesa klik tambah umkm
+    #     And Bumdesa memasukkan data umkm 'umkm cy hapus' 'cy' '08212831920' 'umkm test hapus otomasi'
+    #     And Bumdesa klik validasi tambah umkm
+    #     And Bumdesa mencari nama umkm 'umkm cy hapus'
+    #     And Bumdesa klik tombol hapus umkm
+    #     Then Bumdesa melihat informasi hapus umkm 'Data berhasil dihapus'
+
+    Scenario: Bumdesa edit data UMKM
         When Bumdesa klik menu umkm
-        And Bumdesa klik tambah umkm
-        And Bumdesa memasukkan data umkm 'umkm cy hapus' 'cy' '08212831920' 'umkm test hapus otomasi'
-        And Bumdesa klik validasi tambah umkm
-        And Bumdesa mencari nama umkm 'umkm cy hapus'
-        And Bumdesa klik tombol hapus umkm
-        Then Bumdesa melihat informasi hapus umkm
+        And Bumdesa mencari nama umkm 'umkm cy'
+        And Bumdesa klik tombol edit umkm
+        And Bumdesa mengubah deskripsi umkm ' U'
+        And Bumdesa klik tombol validasi ubah data umkm
+        Then Bumdesa melihat informasi ubah deskripsi umkm 'Update data umkm berhasil'

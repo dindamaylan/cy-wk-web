@@ -40,6 +40,23 @@ When('Bumdesa klik tombol hapus umkm', () => {
     dashBPO.clickBtnHapusUmkm();
 })
 
-Then('Bumdesa melihat informasi hapus umkm', () =>{
-    dashBPO.getInfromasiHapusUmkm();
+Then('Bumdesa melihat informasi hapus umkm {string}', (messsage) =>{
+    dashBPO.getInfromasiUDUmkm(messsage);
+})
+
+When('Bumdesa klik tombol edit umkm', () =>{
+    dashBPO.clickBtnEditUmkm();
+})
+
+When('Bumdesa mengubah deskripsi umkm {string}', (deskripsi) =>{
+    const random = Math.floor(Math.random() * 10);
+    dashBPO.updateDeskripsiUmkm(deskripsi+'-'+random)
+})
+
+When('Bumdesa klik tombol validasi ubah data umkm', ()=>{
+    dashBPO.clickBtnValidationUbahUmkm();
+})
+
+Then('Bumdesa melihat informasi ubah deskripsi umkm {string}', (message) =>{
+    dashBPO.getInfromasiUDUmkm(message);
 })

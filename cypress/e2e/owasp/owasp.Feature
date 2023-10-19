@@ -12,7 +12,6 @@ Feature: Owasp
         And Saya akses halaman bumdes
         Then Pengguna diarahkan ke halaman login
 
-    @Only
     # Scenario: [A01-002] Admin Bumdesa tidak dapat mengakses halaman bumdes untuk melihat detail Bumdesa lain
     #     Given Saya mengunjungi halaman WK
     #     When Saya menuju halaman login
@@ -125,7 +124,7 @@ Feature: Owasp
     #     And Saya akses halaman riwayat kerjasama
     #     Then Pengguna diarahkan ke halaman login
 
-    @A07
+    # @A07
     # identification and Auth Failure
     # Scenario: [A07-001] Pengguna tanpa login mengunjungi halaman dashboard
     #     When Pengguna mengakses url halaman dashboard tanpa login

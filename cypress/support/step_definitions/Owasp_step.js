@@ -17,62 +17,98 @@ When('Saya akses halaman kategori produk', () =>{
 })
 
 When('Saya akses halaman bumdes', () =>{
-    // basePO.nav("admin/bumdes")
-    cy.request('https://waroengkita.id/admin/bumdes').then((response) => {
-        expect(response.status).to.eq(302);
-    });
+    cy.visit("https://waroengkita.id/admin/bumdes")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman detail bumdes lain', () =>{
-    basePO.nav("admin/bumdes/"+bumdesUUID)
+    cy.visit("https://waroengkita.id/admin/bumdes/"+bumdesUUID)
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman detail produk bumdes lain', () =>{
-    basePO.nav("admin/show/inventory/"+bumdesUUID)
+    cy.visit("https://waroengkita.id/admin/show/inventory/"+bumdesUUID)
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman buyer', () =>{
-    basePO.nav("admin/mitra")
+    cy.visit("https://waroengkita.id/admin/mitra")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman manajemen user', () =>{
-    basePO.nav("admin/user-manajemen")
+    cy.visit("https://waroengkita.id/admin/bumdesa/user-manajemen")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman laporan inventory seluruh bumdesa', () =>{
-    basePO.nav("admin/laporan/bumdesa/inventori")
+    cy.visit("https://waroengkita.id/admin/laporan/bumdesa/inventori")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman laporan keuntungan seluruh bumdesa', () => {
-    basePO.nav("admin/laporan/bumdesa/keuntungan")
+    cy.visit("https://waroengkita.id/admin/laporan/bumdesa/keuntungan")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman laporan riwayat transaksi penjualan seluruh bumdesa', () => {
-    basePO.nav("admin/laporan/bumdesa/transaksi")
+    cy.visit("https://waroengkita.id/admin/laporan/bumdesa/transaksi")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman laporan produk paling laris dari seluruh bumdesa', () =>{
-    basePO.nav("admin/laporan/bumdesa/produk-paling-laris")
+    cy.visit("https://waroengkita.id/admin/laporan/bumdesa/produk-paling-laris")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman laporan inventory seluruh mitra', () =>{
-    basePO.nav("admin/laporan/warung/inventori")
+    cy.visit("https://waroengkita.id/admin/laporan/warung/inventori")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman laporan keuntungan seluruh mitra', () =>{
-    basePO.nav("admin/laporan/warung/keuntungan")
+    cy.visit("https://waroengkita.id/admin/laporan/warung/keuntungan")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman laporan riwayat transksi seluruh mitra', () =>{
-    basePO.nav("admin/laporan/warung/transaksi")
+    cy.visit("https://waroengkita.id/admin/laporan/warung/transaksi")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman kurir', () =>{
-    basePO.nav("bumdes/kurir")
+    // basePO.nav("bumdes/kurir", {followRedirect: false})
+    // cy.request({
+    //     url: "https://waroengkita.id/bumdes/kurir",
+    //     failOnStatusCode: false
+    // }).then((response) =>{
+    //     try{
+    //         expect(403).to.equal(response.status)
+    //         expect('https://waroengkita.id/login').to.eq(response.redirectedToUrl)
+    //     }catch (e) {
+    //         cy.log({message : `assertion failed: ${e.message}`})
+    //     }
+    // })
+    cy.visit("https://waroengkita.id/bumdes/kurir")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 When('Saya akses halaman riwayat kerjasama', () =>{
-    basePO.nav("bumdes/kerjasama")
+    // basePO.nav("bumdes/kerjasama", {followRedirect: false})
+    // cy.request({
+    //     url: "https://waroengkita.id/bumdes/kerjasama",
+    //     failOnStatusCode: false
+    // }).then((response) =>{
+    //     try{
+    //         expect(403).to.equal(response.status)
+    //         expect('https://waroengkita.id/login').to.eq(response.redirectedToUrl)
+    //     }catch (e) {
+    //         cy.log({message : `assertion failed: ${e.message}`})
+    //     }
+    // })
+
+    cy.visit("https://waroengkita.id/bumdes/kerjasama")
+    cy.url().should('eq', 'https://waroengkita.id/login')
 })
 
 Then('Saya melihat informasi akses login ditolak {string}', (message)=>{

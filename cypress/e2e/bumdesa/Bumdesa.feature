@@ -56,4 +56,19 @@ Feature: Bumdesa
     Scenario: Bumdesa menuju menu inventory
         When Bumdesa klik menu inventory
         Then Bumdesa melihat halaman inventory
-        
+
+    Scenario: BUMDesa mencari inventory berdasarkan nama produk
+        When Bumdesa klik menu inventory
+        And Bumdesa mencari inventory berdasarkan nama produk '<namaProduk>'
+        Then Bumdesa melihat informasi list inventory yang dicari '<namaProduk>'
+
+        Examples:
+            | namaProduk     |
+            | dupe wet brush |
+            | uwuw           |
+
+    Scenario: Bumdesa menambah data inventory
+        When Bumdesa klik menu inventory
+        And Bumdesa klik tombol tambah inventory
+        And Bumdesa memasukkan data inventory
+        Then Bumdesa melihat informasi tambah data inventory

@@ -363,6 +363,7 @@ class DashA_object {
   getInformasiTambahBuyer(nama, email, noWa, deskripsi, logo, message) {
     const emailFormat = email.includes("@");
 
+    // if
     switch (true) {
       case !nama:
         cy.fixture("config.json").then((data) => {

@@ -68,3 +68,17 @@ When('Bumdesa klik menu inventory', () => {
 Then('Bumdesa melihat halaman inventory', () => {
     dashBPO.onMenuInventory();
 })
+
+
+/*MENU INVENTORY*/
+When('Bumdesa mencari inventory berdasarkan nama produk {string}', (namaProduk)=>{
+    dashBPO.setSearchInventory(namaProduk)
+})
+
+Then('Bumdesa melihat informasi list inventory yang dicari {string}', (namaProduk) =>{
+    dashBPO.getSearchInventory(namaProduk)
+})
+
+When('Bumdesa klik tombol tambah inventory', () =>{
+    dashBPO.clickBtnTambahInventory()
+})

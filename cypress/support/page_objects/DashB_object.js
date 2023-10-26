@@ -82,14 +82,14 @@ class DashB_object {
   }
 
   getSearchUMKM(namaUmkm) {
-    if (namaUmkm == "UMKM 1") {
-      cy.xpath("//table[@id='DataTables_Table_0']")
-        .contains(namaUmkm)
-        .should(`be.visible`);
-    } else {
+    if (namaUmkm == "uwuw") {
       cy.xpath(
         "//table[@id='DataTables_Table_0']//td[@class='dataTables_empty']"
       ).should("have.text", "No matching records found");
+    } else {
+      cy.xpath("//table[@id='DataTables_Table_0']")
+        .contains(namaUmkm)
+        .should(`be.visible`);
     }
   }
 
@@ -343,9 +343,37 @@ class DashB_object {
       .then((text) => {
         const trimmedText = text.trim();
         expect("Aksi").to.equal(trimmedText);
-      });
+      });     
+  }
 
-      
+  /*Menu Inventory*/
+  setSearchInventory(namaProduk){
+    cy.xpath(
+      "//div[@id='DataTables_Table_0_filter']//input[@type='search']"
+    ).type(namaProduk);
+  }
+
+  getSearchInventory(namaProduk){
+    if (namaProduk == "uwuw") {
+      cy.xpath(
+        "//table[@id='DataTables_Table_0']//td[@class='dataTables_empty']"
+      ).should("have.text", "No matching records found");
+    } else {
+      cy.xpath("//table[@id='DataTables_Table_0']")
+        .contains(namaProduk)
+        .should(`be.visible`);
+    }
+  }
+
+  clickBtnTambahInventory(){
+    cy.xpath("//div[@href='#']/button[@type='button']")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Tambah Barang").to.equal(trimmedText)
+    });
+    
+    cy.xpath("//div[@href='#']/button[@type='button']").click();
   }
 }
 export default DashB_object;

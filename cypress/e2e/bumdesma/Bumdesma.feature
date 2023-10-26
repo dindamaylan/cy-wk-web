@@ -7,10 +7,10 @@ Feature: Bumdesma
         And Saya klik tombol masuk
         Then Saya melihat halaman dashboard BUMDesma
 
-    # @MANAJEMEN-BUMDES
-    # Scenario: BUMDesma menuju menu bumdes
-    #     When BUMDesma klik menu bumdes
-    #     Then BUMDesma melihat halaman bumdes
+    @MANAJEMEN-BUMDES
+    Scenario: BUMDesma menuju menu bumdes
+        When BUMDesma klik menu bumdes
+        Then BUMDesma melihat halaman bumdes
 
     Scenario: BUMDesma menambahkan data bumdesa
         When BUMDesma klik menu bumdes
@@ -22,25 +22,25 @@ Feature: Bumdesma
         Examples:
             | namaBumdes  | alamat | biayaTransaksi | logo      | message                  |
             | bumdes new  | alamat | 1000           | image.png | Success |
-            # | Test bumdes | alamat | 1000           | image.png | bumdes sudah tersedia    |
+            | Test bumdes | alamat | 1000           | image.png | bumdes sudah tersedia    |
 
 # @MANAJEMEN-BUYER
-# Scenario: BUMDesma menuju menu buyer
-#     When BUMDesma klik menu buyer
-#     Then BUMDesma melihat halaman menu buyer
+Scenario: BUMDesma menuju menu buyer
+    When BUMDesma klik menu buyer
+    Then BUMDesma melihat halaman menu buyer
 
-# Scenario: BUMDesma menambah data buyer
-#     When BUMDesma klik menu buyer
-#     And BUMDesma klik tombol tambah buyer
-#     And BUMDesma memasukkan data buyer '<nama>' '<email>' '<nomorWa>' '<deskripsi>' '<logo>'
-#     And BUMDesma klik tombol validasi tambah buyer
-#     # Then BUMDesma mendapatkan infromasi tambah buyer '<nama>' '<email>' '<nomorWa>' '<deskripsi>' '<logo>' '<message>'
+Scenario: BUMDesma menambah data buyer
+    When BUMDesma klik menu buyer
+    And BUMDesma klik tombol tambah buyer
+    And BUMDesma memasukkan data buyer '<nama>' '<email>' '<nomorWa>' '<deskripsi>' '<logo>'
+    And BUMDesma klik tombol validasi tambah buyer
+    Then BUMDesma mendapatkan infromasi tambah buyer '<nama>' '<email>' '<nomorWa>' '<deskripsi>' '<logo>' '<message>'
 
-#     Examples:
-#         | nama    | email          | nomorWa    | deskripsi        | logo      | message                    |
-#         | buyer A | b@test.com     | 0821902937 | warung asih test | image.png | buyer berhasil ditambahkan |
-#         | buyer Z | buyer@test.com | 0821902937 | warung asih      | image.png | Email sudah terdaftar      |
-# |      | buyer@test.com | 0821902937 | warung asih | image.png | Email sudah terdaftar |
+    Examples:
+        | nama    | email          | nomorWa    | deskripsi        | logo      | message                    |
+        | buyer A | b@test.com     | 0821902937 | warung asih test | image.png | buyer berhasil ditambahkan |
+        | buyer Z | buyer@test.com | 0821902937 | warung asih      | image.png | Email sudah terdaftar      |
+        | buyer@test.com | 0821902937 | warung asih | image.png | Email sudah terdaftar |
 
 # @MANAJEMEN-USER
 # Scenario: BUMDesma menuju menu manajemen user

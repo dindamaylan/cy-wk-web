@@ -33,7 +33,7 @@ Feature: Login
             | email                   | password | message                                                                |
             | superadmin@gmail.com    | pororo   | Email atau Password Salah                                              |
             | superadmin              | 12345678 |                                                                        |
-            | admin-bumdesa@gmail.com | pororo   | Email atau Password Salah                                              |
+            | admin-bumdes@gmail.com | pororo   | Email atau Password Salah                                              |
             |                         |          |                                                                        |
             | dindamaylan@gmail.com   | pororo   | Email atau Password Salah                                              |
             | admin121@gmail.com      | 12345678 | Akun anda belum aktif atau telah dinonaktifkan, silahkan hubungi admin |

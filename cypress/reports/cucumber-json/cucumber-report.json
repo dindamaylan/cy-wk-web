@@ -1,451 +1,173 @@
 [
   {
-    "description": "    Feature Description",
+    "description": "",
     "elements": [
       {
         "description": "",
-        "id": "login;bumdesma-login-dengan-baik-dan-benar",
+        "id": "register;sebagai-admin-bumdesa-saya-ingin-mengajukan-diri-mendaftarkan-bumdesa",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Sebagai admin bumdesa saya ingin mengajukan diri mendaftarkan BUMDesa",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Saya mengunjungi halaman WK",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3032000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Saya menuju halaman register",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 966000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "Saya klik menu pendaftaran BUMDesa",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 148000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "Saya mengisi data nama bumdes 'bumdesTes1' provinsi 'JAWA TENGAH' kabupaten 'KABUPATEN BANYUMAS' kecamatan 'PURWOKERTO UTARA' desa 'SUMAMPIR' alamat lengkap 'RT 01 RW 01' logoBumdes 'image.png' suratPernyataan 'filePDF.pdf' nama penanggung jawab 'Eli' email penanggung jawab 'eli@mail.com' password penanggung jawab '12345678'",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20991000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "Saya klik tombol daftar sebagai bumdesa",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1099000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "Saya melihat informasi registreasi bumdesa 'bumdesTes1' 'JAWA TENGAH' 'KABUPATEN BANYUMAS' 'PURWOKERTO UTARA' 'SUMAMPIR' 'RT 01 RW 01' 'image.png' 'filePDF.pdf' 'Eli' 'eli@mail.com' '12345678' 'Pendaftaran berhasil, mohon menunggu sampai proses verifikasi selesai'",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 31000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "register;sebagai-admin-bumdesa-saya-ingin-mengajukan-diri-mendaftarkan-bumdesa",
         "keyword": "Scenario",
         "line": 16,
-        "name": "BUMDesma login dengan baik dan benar",
+        "name": "Sebagai admin bumdesa saya ingin mengajukan diri mendaftarkan BUMDesa",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 4,
             "name": "Saya mengunjungi halaman WK",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 5086000000
+              "duration": 3848000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 7,
-            "name": "Saya menuju halaman login",
+            "line": 5,
+            "name": "Saya menuju halaman register",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 442000000
+              "duration": 387000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
+            "line": 8,
+            "name": "Saya klik menu pendaftaran BUMDesa",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 138000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "Saya mengisi data nama bumdes 'namaBumdes' provinsi 'JAWA TENGAH' kabupaten 'KABUPATEN KEBUMEN' kecamatan 'ROWOKELE' desa 'KRETEK' alamat lengkap 'alamat lengkap' logoBumdes 'image.png' suratPernyataan 'filePDF.pdf' nama penanggung jawab 'namaPJ' email penanggung jawab 'admin-bumdes@gmail.com' password penanggung jawab 'passwordPJ'",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21069000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
             "line": 10,
-            "name": "Saya masukan email 'superadmin@gmail.com' dan password '12345678'",
+            "name": "Saya klik tombol daftar sebagai bumdesa",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 719000000
+              "duration": 904000000
             }
           },
           {
             "arguments": [],
-            "keyword": "And ",
+            "keyword": "Then ",
             "line": 11,
-            "name": "Saya klik tombol masuk",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1667000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 12,
-            "name": "Saya melihat halaman dashboard BUMDesma",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 105000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "login;bumdesa-login-dengan-baik-dan-benar",
-        "keyword": "Scenario",
-        "line": 25,
-        "name": "BUMDesa login dengan baik dan benar",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "Saya mengunjungi halaman WK",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3069000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 7,
-            "name": "Saya menuju halaman login",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 422000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 19,
-            "name": "Saya masukan email 'admin-bumdes@gmail.com' dan password '12345678'",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 717000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 20,
-            "name": "Saya klik tombol masuk",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3039000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 21,
-            "name": "Saya melihat halaman dashboard BUMDesa",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 44000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "login;pengguna-mencoba-login-dengan-tidak-baik-dan-tidak-benar",
-        "keyword": "Scenario",
-        "line": 34,
-        "name": "Pengguna mencoba login dengan tidak baik dan tidak benar",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "Saya mengunjungi halaman WK",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2435000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 7,
-            "name": "Saya menuju halaman login",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 280000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 28,
-            "name": "Saya masukan email 'superadmin@gmail.com' dan password 'pororo'",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 681000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 29,
-            "name": "Saya klik tombol masuk",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1608000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "Saya melihat informasi login 'superadmin@gmail.com' 'pororo' 'Email atau Password Salah'",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 39000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "login;pengguna-mencoba-login-dengan-tidak-baik-dan-tidak-benar",
-        "keyword": "Scenario",
-        "line": 35,
-        "name": "Pengguna mencoba login dengan tidak baik dan tidak benar",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "Saya mengunjungi halaman WK",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3752000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 7,
-            "name": "Saya menuju halaman login",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 272000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 28,
-            "name": "Saya masukan email 'superadmin' dan password '12345678'",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 576000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 29,
-            "name": "Saya klik tombol masuk",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 122000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "Saya melihat informasi login 'superadmin' '12345678' ''",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 37000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "login;pengguna-mencoba-login-dengan-tidak-baik-dan-tidak-benar",
-        "keyword": "Scenario",
-        "line": 36,
-        "name": "Pengguna mencoba login dengan tidak baik dan tidak benar",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "Saya mengunjungi halaman WK",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1868000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 7,
-            "name": "Saya menuju halaman login",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 454000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 28,
-            "name": "Saya masukan email 'admin-bumdes@gmail.com' dan password 'pororo'",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 711000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 29,
-            "name": "Saya klik tombol masuk",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1070000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "Saya melihat informasi login 'admin-bumdes@gmail.com' 'pororo' 'Email atau Password Salah'",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 28000000
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "login;pengguna-mencoba-login-dengan-tidak-baik-dan-tidak-benar",
-        "keyword": "Scenario",
-        "line": 37,
-        "name": "Pengguna mencoba login dengan tidak baik dan tidak benar",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 6,
-            "name": "Saya mengunjungi halaman WK",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 4431000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 7,
-            "name": "Saya menuju halaman login",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 787000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 28,
-            "name": "Saya masukan email '' dan password ''",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 53000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 29,
-            "name": "Saya klik tombol masuk",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 134000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "Saya melihat informasi login '' '' ''",
+            "name": "Saya melihat informasi registreasi bumdesa 'namaBumdes' 'JAWA TENGAH' 'KABUPATEN KEBUMEN' 'ROWOKELE' 'KRETEK' 'alamat lengkap' 'image.png' 'filePDF.pdf' 'namaPJ' 'admin-bumdes@gmail.com' 'passwordPJ' 'Gagal'",
             "match": {
               "location": "not available:0"
             },
@@ -460,74 +182,61 @@
       },
       {
         "description": "",
-        "id": "login;pengguna-mencoba-login-dengan-tidak-baik-dan-tidak-benar",
+        "id": "register;sebagai-pemilik-warung-saya-ingin-melihat-syarat-dan-ketentuan",
         "keyword": "Scenario",
-        "line": 38,
-        "name": "Pengguna mencoba login dengan tidak baik dan tidak benar",
+        "line": 19,
+        "name": "Sebagai pemilik warung saya ingin melihat syarat dan ketentuan",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 4,
             "name": "Saya mengunjungi halaman WK",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 2024000000
+              "duration": 2910000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 7,
-            "name": "Saya menuju halaman login",
+            "line": 5,
+            "name": "Saya menuju halaman register",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 238000000
+              "duration": 502000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 28,
-            "name": "Saya masukan email 'dindamaylan@gmail.com' dan password 'pororo'",
+            "line": 20,
+            "name": "Saya klik menu pendaftaran warung",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 675000000
+              "duration": 138000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 29,
-            "name": "Saya klik tombol masuk",
+            "line": 21,
+            "name": "Saya klik lihat syarat dan ketentuan untuk membacanya",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 1050000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "Saya melihat informasi login 'dindamaylan@gmail.com' 'pororo' 'Email atau Password Salah'",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 22000000
+              "duration": 134000000
             }
           }
         ],
@@ -536,74 +245,100 @@
       },
       {
         "description": "",
-        "id": "login;pengguna-mencoba-login-dengan-tidak-baik-dan-tidak-benar",
+        "id": "register;sebagai-pemilik-warung-saya-ingin-mendaftarkan-diri",
         "keyword": "Scenario",
-        "line": 39,
-        "name": "Pengguna mencoba login dengan tidak baik dan tidak benar",
+        "line": 32,
+        "name": "Sebagai pemilik warung saya ingin mendaftarkan diri",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 4,
             "name": "Saya mengunjungi halaman WK",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 2373000000
+              "duration": 1584000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 7,
-            "name": "Saya menuju halaman login",
+            "line": 5,
+            "name": "Saya menuju halaman register",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 279000000
+              "duration": 439000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
+            "line": 24,
+            "name": "Saya klik menu pendaftaran warung",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 117000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "Saya mengisi data nama warung 'test' email 'm@test.com' password '12345678'",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 853000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "Saya klik tombol menyetujui syarat dan ketentuan",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 123000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "Saya klik tombol daftar sebagai warung",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 659000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
             "line": 28,
-            "name": "Saya masukan email 'admin121@gmail.com' dan password '12345678'",
+            "name": "Saya melihat informasi registrasi warung 'test' 'm@test.com' '12345678' 'Pendaftaran berhasil, mohon tunggu sampai admin mengaktifkan akun anda'",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 731000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 29,
-            "name": "Saya klik tombol masuk",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 645000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "Saya melihat informasi login 'admin121@gmail.com' '12345678' 'Akun anda belum aktif atau telah dinonaktifkan, silahkan hubungi admin'",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 35000000
+              "duration": 18000000
             }
           }
         ],
@@ -612,74 +347,100 @@
       },
       {
         "description": "",
-        "id": "login;pengguna-mencoba-login-dengan-tidak-baik-dan-tidak-benar",
+        "id": "register;sebagai-pemilik-warung-saya-ingin-mendaftarkan-diri",
         "keyword": "Scenario",
-        "line": 40,
-        "name": "Pengguna mencoba login dengan tidak baik dan tidak benar",
+        "line": 33,
+        "name": "Sebagai pemilik warung saya ingin mendaftarkan diri",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 4,
             "name": "Saya mengunjungi halaman WK",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 2388000000
+              "duration": 2401000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 7,
-            "name": "Saya menuju halaman login",
+            "line": 5,
+            "name": "Saya menuju halaman register",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 414000000
+              "duration": 463000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
+            "line": 24,
+            "name": "Saya klik menu pendaftaran warung",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 118000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "Saya mengisi data nama warung 'test' email 'mitra@gmail.com' password '12345678'",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 856000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "Saya klik tombol menyetujui syarat dan ketentuan",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 141000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "Saya klik tombol daftar sebagai warung",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 576000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
             "line": 28,
-            "name": "Saya masukan email 'warung@gmail.com' dan password '12345678'",
+            "name": "Saya melihat informasi registrasi warung 'test' 'mitra@gmail.com' '12345678' 'Email sudah terdaftar'",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 633000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 29,
-            "name": "Saya klik tombol masuk",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 718000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 30,
-            "name": "Saya melihat informasi login 'warung@gmail.com' '12345678' 'Email atau Password Salah'",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 26000000
+              "duration": 18000000
             }
           }
         ],
@@ -688,61 +449,354 @@
       },
       {
         "description": "",
-        "id": "login;pengguna-menuju-halaman-registrasi",
+        "id": "register;sebagai-pemilik-warung-saya-ingin-mendaftarkan-diri",
         "keyword": "Scenario",
-        "line": 42,
-        "name": "Pengguna menuju halaman registrasi",
+        "line": 34,
+        "name": "Sebagai pemilik warung saya ingin mendaftarkan diri",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 6,
+            "line": 4,
             "name": "Saya mengunjungi halaman WK",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 13518000000
+              "duration": 2355000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 7,
-            "name": "Saya menuju halaman login",
+            "line": 5,
+            "name": "Saya menuju halaman register",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 468000000
+              "duration": 579000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 43,
-            "name": "Saya klik tombol daftar untuk menuju halaman registrasi",
+            "line": 24,
+            "name": "Saya klik menu pendaftaran warung",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 893000000
+              "duration": 117000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "Saya mengisi data nama warung '' email '' password ''",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 99000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "Saya klik tombol menyetujui syarat dan ketentuan",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 109000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "Saya klik tombol daftar sebagai warung",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 133000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 44,
-            "name": "Saya berada di halaman pendaftaran",
+            "line": 28,
+            "name": "Saya melihat informasi registrasi warung '' '' '' ''",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 29000000
+              "duration": 19000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "register;sebagai-pemilik-warung-saya-ingin-mendaftarkan-diri",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "Sebagai pemilik warung saya ingin mendaftarkan diri",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Saya mengunjungi halaman WK",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1753000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Saya menuju halaman register",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 350000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "Saya klik menu pendaftaran warung",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 123000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "Saya mengisi data nama warung 'test' email 'mitra' password '12345678'",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 820000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "Saya klik tombol menyetujui syarat dan ketentuan",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 118000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "Saya klik tombol daftar sebagai warung",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 135000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "Saya melihat informasi registrasi warung 'test' 'mitra' '12345678' ''",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 56000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "register;sebagai-pemilik-warung-saya-ingin-mendaftarkan-diri-tapi-tidak-menyetujui-syarat-dan-ketentuan",
+        "keyword": "Scenario",
+        "line": 45,
+        "name": "Sebagai pemilik warung saya ingin mendaftarkan diri tapi tidak menyetujui syarat dan ketentuan",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Saya mengunjungi halaman WK",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2301000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Saya menuju halaman register",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 347000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 38,
+            "name": "Saya klik menu pendaftaran warung",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 123000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 39,
+            "name": "Saya mengisi data nama warung 'test' email 'm@test.com' password '12345678'",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 894000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 40,
+            "name": "Saya klik tombol daftar sebagai warung",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 137000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 41,
+            "name": "Saya melihat informasi registrasi warung 'test' 'm@test.com' '12345678' 'You must agree to the service terms!'",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "register;pengguna-menuju-halaman-login",
+        "keyword": "Scenario",
+        "line": 47,
+        "name": "Pengguna menuju halaman login",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Saya mengunjungi halaman WK",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1669000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Saya menuju halaman register",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 879000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 48,
+            "name": "Saya klik cta masuk",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 479000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 49,
+            "name": "Saya berada di halaman login",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33000000
             }
           }
         ],
@@ -750,11 +804,11 @@
         "type": "scenario"
       }
     ],
-    "id": "login",
+    "id": "register",
     "line": 1,
     "keyword": "Feature",
-    "name": "Login",
+    "name": "Register",
     "tags": [],
-    "uri": "cypress\\e2e\\authUser\\Login.feature"
+    "uri": "cypress\\e2e\\authUser\\Register.feature"
   }
 ]

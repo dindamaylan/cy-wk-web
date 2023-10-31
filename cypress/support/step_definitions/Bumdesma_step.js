@@ -3,7 +3,7 @@ import DashA_object from "../page_objects/DashA_object"
 
 const dashAPO = new DashA_object;
 
-/* Menu Bumdes */
+/*START FEATURE OF MENU BUMDES */
 When('BUMDesma klik menu bumdes', () =>{
     dashAPO.clickMenuBumDes();
 })
@@ -27,6 +27,9 @@ When('BUMDesma klik validasi tambah bumdes', ()=>{
 Then('BUMDesma melihat informasi tambah bumdesa {string} {string} {string} {string} {string}', (namaBumdes, alamat, biayaTransaksi, logo, message)=>{
     dashAPO.getInformasiTambahBUMDes(namaBumdes, alamat, biayaTransaksi, logo, message);
 })
+/*END FEATURE OF MENU BUMDES*/
+
+
 /* Menu Buyer */
 When('BUMDesma klik menu buyer', () =>{
     dashAPO.clickMenuBuyer();
@@ -34,6 +37,18 @@ When('BUMDesma klik menu buyer', () =>{
 
 Then('BUMDesma melihat halaman menu buyer', () =>{
     dashAPO.onMenuBuyerPage();
+})
+
+When('BUMDesma memasukkan informasi buyer di kolom pencarian {string}', (buyer) =>{
+    dashAPO.searchBuyer(buyer);
+})
+
+Then('BUMDesma melihat informasi buyer yang dicari {string}', (buyer) => {
+    dashAPO.getSearchBuyer(buyer);
+})
+
+When('BUMDesma klik tombol detail produk buyer', () =>{
+    dashAPO.clickBtnDetailProdukBuyer();
 })
 
 When('BUMDesma klik tombol tambah buyer', () =>{
@@ -51,6 +66,16 @@ When('BUMDesma klik tombol validasi tambah buyer', ()=>{
 Then('BUMDesma mendapatkan infromasi tambah buyer {string} {string} {string} {string} {string} {string}', (nama, email, noWa, deskripsi, logo, message) =>{
     dashAPO.getInformasiTambahBuyer(nama, email, noWa, deskripsi, logo, message);
 })
+
+When('BUMDesma klik tombol detail warung', () =>{
+    dashAPO.clickBtnDetailBuyer()
+})
+
+Then('BUMDesma beralih halaman overview buyer untuk melihat informasi detail warung {string} {string} {string}', (email, nama, token) =>{
+    dashAPO.getDetailBuyer(email, nama, token);
+})
+/*END FEATURE OF MENU BUYER (MITRA)*/
+
 
 /* Menu Manajemen User */
 When('BUMDesma klik menu manajemen user', () =>{
@@ -149,7 +174,7 @@ When('BUMDesma klik menu laporan inventory warung', () =>{
 })
 
 Then('BUMDesma melihat halaman laporan inventory warung', () =>{
-    dashAPO.onLaporanWarungInventory();
+    dashAPO.onDetailWarungInventory();
 })
 
 When('BUMDesma klik menu laporan keuntungan warung', () =>{

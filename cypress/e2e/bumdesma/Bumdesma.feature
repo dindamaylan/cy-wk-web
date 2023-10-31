@@ -7,41 +7,68 @@ Feature: Bumdesma
         And Saya klik tombol masuk
         Then Saya melihat halaman dashboard BUMDesma
 
-    @MANAJEMEN-BUMDES
-    Scenario: BUMDesma menuju menu bumdes
-        When BUMDesma klik menu bumdes
-        Then BUMDesma melihat halaman bumdes
+#     @MANAJEMEN-BUMDES
+#     Scenario: BUMDesma menuju menu bumdes
+#         When BUMDesma klik menu bumdes
+#         Then BUMDesma melihat halaman bumdes
 
-    Scenario: BUMDesma menambahkan data bumdesa
-        When BUMDesma klik menu bumdes
-        And BUMDesma klik tambah bumdes
-        And BUMDesma memasukkan data bumdes '<namaBumdes>' '<alamat>' '<biayaTransaksi>' '<logo>'
-        And BUMDesma klik validasi tambah bumdes
-        Then BUMDesma melihat informasi tambah bumdesa '<namaBumdes>' '<alamat>' '<biayaTransaksi>' '<logo>' '<message>'
+#     Scenario: BUMDesma menambahkan data bumdesa
+#         When BUMDesma klik menu bumdes
+#         And BUMDesma klik tambah bumdes
+#         And BUMDesma memasukkan data bumdes '<namaBumdes>' '<alamat>' '<biayaTransaksi>' '<logo>'
+#         And BUMDesma klik validasi tambah bumdes
+#         Then BUMDesma melihat informasi tambah bumdesa '<namaBumdes>' '<alamat>' '<biayaTransaksi>' '<logo>' '<message>'
 
-        Examples:
-            | namaBumdes  | alamat | biayaTransaksi | logo      | message                  |
-            | bumdes new  | alamat | 1000           | image.png | Success |
-            | Test bumdes | alamat | 1000           | image.png | bumdes sudah tersedia    |
+#         Examples:
+#             | namaBumdes  | alamat | biayaTransaksi | logo      | message                  |
+#             | bumdes new  | alamat | 1000           | image.png | Success |
+#             | Test bumdes | alamat | 1000           | image.png | bumdes sudah tersedia    |
 
-# @MANAJEMEN-BUYER
-Scenario: BUMDesma menuju menu buyer
+# # @MANAJEMEN-BUYER
+# Scenario: BUMDesma menuju menu buyer
+#     When BUMDesma klik menu buyer
+#     Then BUMDesma melihat halaman menu buyer
+
+# Scenario: BUMDesma menambah data buyer (mitra)
+#     When BUMDesma klik menu buyer
+#     And BUMDesma klik tombol tambah buyer
+#     And BUMDesma memasukkan data buyer '<nama>' '<email>' '<nomorWa>' '<deskripsi>' '<logo>'
+#     And BUMDesma klik tombol validasi tambah buyer
+#     Then BUMDesma mendapatkan infromasi tambah buyer '<nama>' '<email>' '<nomorWa>' '<deskripsi>' '<logo>' '<message>'
+
+#     Examples:
+#         | nama    | email          | nomorWa    | deskripsi        | logo      | message                    |
+#         | buyer A | b@test.com     | 0821902937 | warung asih test | image.png | buyer berhasil ditambahkan |
+#         | buyer Z | buyer@test.com | 0821902937 | warung asih      | image.png | Email sudah terdaftar      |
+#         | buyer@test.com | 0821902937 | warung asih | image.png | Email sudah terdaftar |
+
+ Scenario: BUMDesma mencari data warung (mitra)
     When BUMDesma klik menu buyer
-    Then BUMDesma melihat halaman menu buyer
-
-Scenario: BUMDesma menambah data buyer
-    When BUMDesma klik menu buyer
-    And BUMDesma klik tombol tambah buyer
-    And BUMDesma memasukkan data buyer '<nama>' '<email>' '<nomorWa>' '<deskripsi>' '<logo>'
-    And BUMDesma klik tombol validasi tambah buyer
-    Then BUMDesma mendapatkan infromasi tambah buyer '<nama>' '<email>' '<nomorWa>' '<deskripsi>' '<logo>' '<message>'
+    And BUMDesma memasukkan informasi buyer di kolom pencarian '<buyer>'
+    Then BUMDesma melihat informasi buyer yang dicari '<buyer>'
 
     Examples:
-        | nama    | email          | nomorWa    | deskripsi        | logo      | message                    |
-        | buyer A | b@test.com     | 0821902937 | warung asih test | image.png | buyer berhasil ditambahkan |
-        | buyer Z | buyer@test.com | 0821902937 | warung asih      | image.png | Email sudah terdaftar      |
-        | buyer@test.com | 0821902937 | warung asih | image.png | Email sudah terdaftar |
+        | buyer | 
+        | sopo jarwo  |
+        | warung asih  |
 
+ Scenario: BUMDesma melihat detail produk warung (mitra)
+    When BUMDesma klik menu buyer
+    And BUMDesma memasukkan informasi buyer di kolom pencarian 'mitra@gmail.com'
+    And BUMDesma klik tombol detail produk buyer
+    Then BUMDesma melihat halaman laporan inventory warung
+
+
+Scenario: BUMDesma melihat detail warung (mitra)
+    When BUMDesma klik menu buyer
+    And BUMDesma memasukkan informasi buyer di kolom pencarian '<email>'
+    And BUMDesma klik tombol detail warung
+    Then BUMDesma beralih halaman overview buyer untuk melihat informasi detail warung '<email>' '<nama>' '<token>'
+
+    Examples:
+        | email | nama | token |
+        | mitra@gmail.com  | MITRA BUMDES  | tnSnaR  |
+    
 # @MANAJEMEN-USER
 # Scenario: BUMDesma menuju menu manajemen user
 #     When BUMDesma klik menu manajemen user
@@ -79,7 +106,7 @@ Scenario: BUMDesma menambah data buyer
 
 # Scenario: BUMDesma mencari kategori produk
 #     When BUMDesma klik menu produk kategori
-#     And BUMDesma memasukkan nama kategori di kolom pencarian '<kategori>'
+    # And BUMDesma memasukkan nama kategori di kolom pencarian '<kategori>'
 #     Then BUMDesma melihat informasi kategori yang dicari '<kategori>'
 
 #     Examples:

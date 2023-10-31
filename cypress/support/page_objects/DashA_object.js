@@ -15,6 +15,13 @@ class DashA_object {
     "li:nth-of-type(24) > .nav-main-link > .nav-main-link-name",
   ];
 
+  overview = [
+    "Transaksi Hari Ini",
+    "Transaksi Bulan Ini",
+    "Transaksi Tahun Ini",
+    "Mitra Bumdes"
+  ]
+
   onDashboardBUMDesma() {
     this.menu.forEach((index) => {
       cy.get(this.menu).wrap(index).should(`exist`);
@@ -273,6 +280,46 @@ class DashA_object {
       });
   }
 
+  searchBuyer(buyer){
+    cy.xpath(
+      "//div[@id='DataTables_Table_0_filter']//input[@type='search']"
+    ).type(buyer);
+  }
+
+  getSearchBuyer(buyer) {
+    if (buyer == "warung asih") {
+      cy.xpath("//table[@id='DataTables_Table_0']//td[7]")
+        .contains(buyer)
+        .should(`be.visible`);
+    } else if (buyer == "mitra@gmail.com"){
+      cy.xpath("//table[@id='DataTables_Table_0']//td[3]")
+        .contains(buyer)
+        .should(`be.visible`);
+    } else {
+      cy.xpath(
+        "//table[@id='DataTables_Table_0']//td[@class='dataTables_empty']"
+      ).should("have.text", "No matching records found");
+    }
+  }
+
+  clickBtnDetailProdukBuyer(){
+    cy.xpath(
+      "/html//table[@id='DataTables_Table_0']/tbody/tr[1]//a[@title='Produk']"
+    ).click()
+  }
+
+  clickBtnDetailBuyer(){
+    cy.xpath(
+      "/html//table[@id='DataTables_Table_0']/tbody/tr[1]//a[@title='Detail']"
+    ).click()
+  }
+
+  clickBtnEditBuyer(){
+    cy.xpath(
+      "/html//table[@id='DataTables_Table_0']/tbody/tr[1]/td[@class='text-center']/div[@class='btn-group']/button[@title='Edit']"
+    ).click()
+  }
+
   clickBtnTambahBuyer() {
     cy.xpath(
       "//main[@id='main-container']//nav/div[@href='#']/button[@type='button']"
@@ -285,6 +332,48 @@ class DashA_object {
         const trimmedText = text.trim();
         expect("Tambah Buyer").to.equal(trimmedText);
       });
+  }
+
+  getDetailBuyer(email, nama, token){
+
+    cy.get("h2").invoke("text").then((text) =>{
+      const trimmedText = text.trim();
+      expect("Overview").to.equal(trimmedText)
+    })
+
+    cy.get(".fw-bold.h3.mb-0")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Buyer").to.equal(trimmedText);
+    });
+
+    cy.get(".block-title")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect(nama).to.equal(trimmedText.toUpperCase())
+      })
+
+    cy.get("div:nth-of-type(2) > p")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect(email).to.equal(trimmedText)
+      })
+    
+    cy.get("div:nth-of-type(4) > p")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect(token).to.equal(trimmedText)
+      })
+
+    this.overview.forEach((index) => {
+      cy.xpath("//main[@id='main-container']//div[@class='block-content block-content-full']")
+        .wrap(index)
+        .should("contain", index);
+    })
   }
 
   setNamaBuyer(nama) {
@@ -832,6 +921,82 @@ class DashA_object {
         const trimmedText = text.trim();
         expect("Total Terjual").to.equal(trimmedText);
       });
+  }
+
+  // detail produk
+  onDetailWarungInventory(){
+    cy.get("h1")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Inventori").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[1]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("No").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[2]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Gambar Produk").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[3]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Nama Produk").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[4]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("SKU").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[5]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Stok").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[6]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Harga Beli").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[7]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Harga Jual").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[8]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Tipe Unit Maksimal").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[9]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Tipe Unit Minimal").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[10]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Deskripsi").to.equal(trimmedText);
+    });
+  cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[11]")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Aksi").to.equal(trimmedText);
+    });
   }
 
   // LAPORAN WARUNG

@@ -244,13 +244,13 @@ class Register_object {
   setNamaWarung(nama) {
     if (!nama) {
       cy.xpath(
-        "//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/registerBuyer']//input[@id='name']"
+        "//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/din/registerBuyer']//input[@id='name']"
       )
         .focus()
         .blur();
     } else {
       cy.xpath(
-        "//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/registerBuyer']//input[@id='name']"
+        "//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/din/registerBuyer']//input[@id='name']"
       ).type(nama);
     }
   }
@@ -260,17 +260,17 @@ class Register_object {
 
     if (!email) {
       cy.xpath(
-        "//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/registerBuyer']//input[@id='email']"
+        "//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/din/registerBuyer']//input[@id='email']"
       )
         .focus()
         .blur();
     } else if (email == "mitra@gmail.com") {
       cy.xpath(
-        "//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/registerBuyer']//input[@id='email']"
+        "//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/din/registerBuyer']//input[@id='email']"
       ).type(email);
     } else {
       cy.xpath(
-        "//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/registerBuyer']//input[@id='email']"
+        "//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/din/registerBuyer']//input[@id='email']"
       ).type(randomEmail);
     }
   }
@@ -278,13 +278,13 @@ class Register_object {
   setPasswordWarung(password) {
     if (!password) {
       cy.xpath(
-        "/html//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/registerBuyer']//input[@id='password']"
+        "/html//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/din/registerBuyer']//input[@id='password']"
       )
         .focus()
         .blur();
     } else {
       cy.xpath(
-        "/html//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/registerBuyer']//input[@id='password']"
+        "/html//div[@id='btabs-vertical-info-profile']//form[@action='https://waroengkita.id/din/registerBuyer']//input[@id='password']"
       ).type(password);
     }
   }
@@ -297,7 +297,7 @@ class Register_object {
 
   clickOnbtnRegisterWarung() {
     cy.xpath(
-      "//div[@id='btabs-vertical-info-profile']//button[@type='submit']"
+      "//div[@id='btabs-vertical-info-profile']/div[1]//form[@action='https://waroengkita.id/din/registerBuyer']//button[@type='submit']"
     ).click();
   }
 
@@ -347,7 +347,7 @@ class Register_object {
   }
 
   clickOnSnK() {
-    cy.get("#signup-terms").click();
+    cy.get("input#signup-terms").click();
   }
 
   clickOnSeeSnK() {
@@ -357,7 +357,7 @@ class Register_object {
 
   clickOnCtaMasuk() {
     cy.xpath(
-      "//div[@id='btabs-vertical-info-home']//a[@href='https://waroengkita.id/login']"
+      "//div[@id='btabs-vertical-info-home']//a[@href='https://waroengkita.id/din/login']"
     ).click();
   }
 }

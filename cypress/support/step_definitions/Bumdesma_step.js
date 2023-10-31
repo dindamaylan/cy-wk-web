@@ -27,6 +27,54 @@ When('BUMDesma klik validasi tambah bumdes', ()=>{
 Then('BUMDesma melihat informasi tambah bumdesa {string} {string} {string} {string} {string}', (namaBumdes, alamat, biayaTransaksi, logo, message)=>{
     dashAPO.getInformasiTambahBUMDes(namaBumdes, alamat, biayaTransaksi, logo, message);
 })
+
+When('BUMDesma memasukkan informasi bumdes di kolom pencarian {string}', (bumdes) =>{
+    dashAPO.searchBUMDes(bumdes)
+})
+
+Then('BUMDesma melihat informasi bumdes yang dicari {string}', (bumdes) =>{
+    dashAPO.getSearchBumdes(bumdes)
+})
+
+When('BUMDesma klik tombol detail produk bumdes', () =>{
+    dashAPO.clickBtnDetailProdukBumdes()
+})
+
+Then('BUMDesma melihat informasi detail produk bumdes', () => {
+    dashAPO.onDetailBumdesInventory()
+})
+
+When('BUMDesma klik tombol detail bumdes', () => {
+    dashAPO.clickBtnDetailBumdes()
+})
+
+Then('BUMDesma melihat halaman detail bumdes {string} {string} {string}', (bumdes, status, token) => {
+    dashAPO.onDetailBumdes(bumdes, status, token);
+})
+
+When('BUMDesma klik tombol tab UMKM', () =>{
+    dashAPO.clickTabMenuUMKM();
+})
+
+Then('BUMDesma melihat list UMKM', () =>{
+    dashAPO.onTabBumdesUMKM();
+})
+
+When('BUMDesma klik tombol tab produk', () =>{
+    dashAPO.clickTabMenuProduk();
+})
+
+Then('BUMDesma melihat list produk bumdesa', () =>{
+    dashAPO.onTabBumdesProduk();
+})
+
+When('BUMDesma klik tombol tab Admin BUMDes', () =>{
+    dashAPO.clickTabMenuAdminBumdes();
+})
+
+Then('BUMDesma melihat list admin bumdesa', () =>{
+    dashAPO.onTabBumdesAdmin();
+})
 /*END FEATURE OF MENU BUMDES*/
 
 
@@ -73,6 +121,10 @@ When('BUMDesma klik tombol detail warung', () =>{
 
 Then('BUMDesma beralih halaman overview buyer untuk melihat informasi detail warung {string} {string} {string}', (email, nama, token) =>{
     dashAPO.getDetailBuyer(email, nama, token);
+})
+
+Then('BUMDesma melihat halaman laporan inventory warung', () =>{
+    dashAPO.onDetailWarungInventory();
 })
 /*END FEATURE OF MENU BUYER (MITRA)*/
 
@@ -171,10 +223,6 @@ Then('BUMDesma melihat halaman laporan produk bumdesa terlaris', () =>{
 /* Menu laporan warung */
 When('BUMDesma klik menu laporan inventory warung', () =>{
     dashAPO.clickLaporanWarungInventory();
-})
-
-Then('BUMDesma melihat halaman laporan inventory warung', () =>{
-    dashAPO.onDetailWarungInventory();
 })
 
 When('BUMDesma klik menu laporan keuntungan warung', () =>{

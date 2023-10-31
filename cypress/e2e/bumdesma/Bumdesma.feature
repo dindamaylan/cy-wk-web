@@ -7,22 +7,58 @@ Feature: Bumdesma
         And Saya klik tombol masuk
         Then Saya melihat halaman dashboard BUMDesma
 
-#     @MANAJEMEN-BUMDES
-#     Scenario: BUMDesma menuju menu bumdes
-#         When BUMDesma klik menu bumdes
-#         Then BUMDesma melihat halaman bumdes
 
-#     Scenario: BUMDesma menambahkan data bumdesa
-#         When BUMDesma klik menu bumdes
-#         And BUMDesma klik tambah bumdes
-#         And BUMDesma memasukkan data bumdes '<namaBumdes>' '<alamat>' '<biayaTransaksi>' '<logo>'
-#         And BUMDesma klik validasi tambah bumdes
-#         Then BUMDesma melihat informasi tambah bumdesa '<namaBumdes>' '<alamat>' '<biayaTransaksi>' '<logo>' '<message>'
+    @MANAJEMEN-BUMDES
+    Scenario: BUMDesma menuju menu bumdes
+        When BUMDesma klik menu bumdes
+        Then BUMDesma melihat halaman bumdes
 
-#         Examples:
-#             | namaBumdes  | alamat | biayaTransaksi | logo      | message                  |
-#             | bumdes new  | alamat | 1000           | image.png | Success |
-#             | Test bumdes | alamat | 1000           | image.png | bumdes sudah tersedia    |
+    #     Scenario: BUMDesma menambahkan data bumdesa
+    #         When BUMDesma klik menu bumdes
+    #         And BUMDesma klik tambah bumdes
+    #         And BUMDesma memasukkan data bumdes '<namaBumdes>' '<alamat>' '<biayaTransaksi>' '<logo>'
+    #         And BUMDesma klik validasi tambah bumdes
+    #         Then BUMDesma melihat informasi tambah bumdesa '<namaBumdes>' '<alamat>' '<biayaTransaksi>' '<logo>' '<message>'
+
+    #         Examples:
+    #             | namaBumdes  | alamat | biayaTransaksi | logo      | message                  |
+    #             | bumdes new  | alamat | 1000           | image.png | Success |
+    #             | bumdesTes1 | alamat | 1000           | image.png | bumdes sudah tersedia    |
+
+    # Scenario: Mencari nama bumdes
+    #     When BUMDesma klik menu bumdes
+    #     And BUMDesma memasukkan informasi bumdes di kolom pencarian '<bumdes>'
+    #     Then BUMDesma melihat informasi bumdes yang dicari '<bumdes>'
+
+    #     Examples:
+    #         | bumdes       |
+    #         | sopo jarwo   |
+    #         | Bumdesa Maju |
+    #         | Test bumdesa  |
+
+    # Scenario: Melihat detail produk bumdes
+    #     When BUMDesma klik menu bumdes
+    #     And BUMDesma memasukkan informasi bumdes di kolom pencarian 'Test bumdesa'
+    #     And BUMDesma klik tombol detail produk bumdes
+    #     Then BUMDesma melihat informasi detail produk bumdes
+
+    Scenario: Melihat detail bumdes
+        When BUMDesma klik menu bumdes
+        And BUMDesma memasukkan informasi bumdes di kolom pencarian '<bumdes>'
+        And BUMDesma klik tombol detail bumdes
+        Then BUMDesma melihat halaman detail bumdes '<bumdes>' '<status>' '<token>'
+        When BUMDesma klik tombol tab UMKM
+        Then BUMDesma melihat list UMKM
+        When BUMDesma klik tombol tab produk
+        Then BUMDesma melihat list produk bumdesa
+        When BUMDesma klik tombol tab Admin BUMDes
+        Then BUMDesma melihat list admin bumdesa
+
+        Examples:
+            | bumdes       | status      | token  |
+            | Bumdesa Maju | belum aktif | WW3PR6 |
+            | Test bumdesa  | aktif       | SGLQ4O |
+
 
 # # @MANAJEMEN-BUYER
 # Scenario: BUMDesma menuju menu buyer
@@ -42,33 +78,33 @@ Feature: Bumdesma
 #         | buyer Z | buyer@test.com | 0821902937 | warung asih      | image.png | Email sudah terdaftar      |
 #         | buyer@test.com | 0821902937 | warung asih | image.png | Email sudah terdaftar |
 
- Scenario: BUMDesma mencari data warung (mitra)
-    When BUMDesma klik menu buyer
-    And BUMDesma memasukkan informasi buyer di kolom pencarian '<buyer>'
-    Then BUMDesma melihat informasi buyer yang dicari '<buyer>'
+#  Scenario: BUMDesma mencari data warung (mitra)
+#     When BUMDesma klik menu buyer
+#     And BUMDesma memasukkan informasi buyer di kolom pencarian '<buyer>'
+#     Then BUMDesma melihat informasi buyer yang dicari '<buyer>'
 
-    Examples:
-        | buyer | 
-        | sopo jarwo  |
-        | warung asih  |
+#     Examples:
+#         | buyer |
+#         | sopo jarwo  |
+#         | warung asih  |
 
- Scenario: BUMDesma melihat detail produk warung (mitra)
-    When BUMDesma klik menu buyer
-    And BUMDesma memasukkan informasi buyer di kolom pencarian 'mitra@gmail.com'
-    And BUMDesma klik tombol detail produk buyer
-    Then BUMDesma melihat halaman laporan inventory warung
+#  Scenario: BUMDesma melihat detail produk warung (mitra)
+#     When BUMDesma klik menu buyer
+#     And BUMDesma memasukkan informasi buyer di kolom pencarian 'mitra@gmail.com'
+#     And BUMDesma klik tombol detail produk buyer
+#     Then BUMDesma melihat halaman laporan inventory warung
 
 
-Scenario: BUMDesma melihat detail warung (mitra)
-    When BUMDesma klik menu buyer
-    And BUMDesma memasukkan informasi buyer di kolom pencarian '<email>'
-    And BUMDesma klik tombol detail warung
-    Then BUMDesma beralih halaman overview buyer untuk melihat informasi detail warung '<email>' '<nama>' '<token>'
+# Scenario: BUMDesma melihat detail warung (mitra)
+#     When BUMDesma klik menu buyer
+#     And BUMDesma memasukkan informasi buyer di kolom pencarian '<email>'
+#     And BUMDesma klik tombol detail warung
+#     Then BUMDesma beralih halaman overview buyer untuk melihat informasi detail warung '<email>' '<nama>' '<token>'
 
-    Examples:
-        | email | nama | token |
-        | mitra@gmail.com  | MITRA BUMDES  | tnSnaR  |
-    
+#     Examples:
+#         | email | nama | token |
+#         | mitra@gmail.com  | MITRA BUMDES  | tnSnaR  |
+
 # @MANAJEMEN-USER
 # Scenario: BUMDesma menuju menu manajemen user
 #     When BUMDesma klik menu manajemen user
@@ -106,7 +142,7 @@ Scenario: BUMDesma melihat detail warung (mitra)
 
 # Scenario: BUMDesma mencari kategori produk
 #     When BUMDesma klik menu produk kategori
-    # And BUMDesma memasukkan nama kategori di kolom pencarian '<kategori>'
+# And BUMDesma memasukkan nama kategori di kolom pencarian '<kategori>'
 #     Then BUMDesma melihat informasi kategori yang dicari '<kategori>'
 
 #     Examples:

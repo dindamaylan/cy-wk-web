@@ -225,7 +225,7 @@ class DashA_object {
   }
 
   getSearchBumdes(bumdes) {
-    if (bumdes == "Bumdesa Maju" || bumdes == "Test bumdes") {
+    if (bumdes == "Bumdesa Maju" || bumdes == "Test bumdesa") {
       cy.xpath("//table[@id='DataTables_Table_0']//td[3]")
         .contains(bumdes)
         .should(`be.visible`);
@@ -379,14 +379,12 @@ class DashA_object {
         expect(token).to.equal(trimmedText);
       });
 
-      cy.xpath(
-        "//main[@id='main-container']//div[2]/div[4]//div[@class='fs-sm']"
-      )
-        .invoke("text")
-        .then((text) => {
-          const trimmedText = text.trim();
-          expect(status).to.equal(trimmedText.toLowerCase());
-        });
+    cy.xpath("//main[@id='main-container']//div[2]/div[4]//div[@class='fs-sm']")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect(status).to.equal(trimmedText.toLowerCase());
+      });
 
     cy.xpath("//button[@id='search-projects-tab']")
       .invoke("text")
@@ -584,6 +582,148 @@ class DashA_object {
         const trimmedText = text.trim();
         expect("status user").to.equal(trimmedText.toLowerCase());
       });
+  }
+
+  clcikBtnTambahAdminBumdes() {
+    cy.xpath("//div[@id='search-projects']/div[1]/button[@type='button']")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tambah Admin").to.equal(trimmedText);
+      });
+    cy.xpath(
+      "//div[@id='search-projects']/div[1]/button[@type='button']"
+    ).click();
+    cy.xpath("//div[@id='modal-add-admin']//h5[@class='modal-title']")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tambah Admin").to.equal(trimmedText);
+      });
+  }
+
+  setDataAdminBUMDes(namaAdmin, emailAdmin, noWa) {
+    this.setNamaAdminBumdes(namaAdmin);
+    this.setEmailAdminBumdes(emailAdmin);
+    this.setNoWaAdminBumdes(noWa);
+  }
+
+  setNamaAdminBumdes(namaAdmin) {
+    cy.wait(1000)
+    if (!namaAdmin) {
+      cy.xpath("//form[@id='form-add-admin']//input[@name='name']").focus().blur();
+    } else {
+      cy.xpath("//form[@id='form-add-admin']//input[@name='name']").type(
+        namaAdmin
+      );
+    }
+  }
+
+  setEmailAdminBumdes(email) {
+    const random = Math.floor(Math.random() * 900) + 100;
+
+    if (!email) {
+      cy.xpath("//form[@id='form-add-admin']//input[@name='email']")
+        .focus()
+        .blur();
+    } else if (email == "admin-bm@test.com"){
+      cy.xpath("//form[@id='form-add-admin']//input[@name='email']").type(
+        random + email
+      );
+    }else {
+      cy.xpath("//form[@id='form-add-admin']//input[@name='email']").type(
+        email
+      );
+    }
+  }
+
+  setNoWaAdminBumdes(noWa) {
+    if (!noWa) {
+      cy.xpath("//form[@id='form-add-admin']//input[@name='wa_number']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath("//form[@id='form-add-admin']//input[@name='wa_number']").type(
+        noWa
+      );
+    }
+  }
+
+  clcikBtnValidationTambahAdminBumdes(){
+    cy.xpath("//div[@id='modal-add-admin']//button[@class='btn btn-primary ms-auto']")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Tambah").to.equal(trimmedText);
+    });
+    cy.xpath("//div[@id='modal-add-admin']//button[@class='btn btn-primary ms-auto']").click()
+  }
+
+  getInformasiTambahAdminBumdes(message) {
+    cy.get("#swal2-title, #swal2-content").should("contain.text", message);
+  }
+
+  clcikBtnTambahUmkmBumdes() {
+    cy.xpath("//div[@id='search-users']/div[1]/button[@type='button']")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tambah Umkm").to.equal(trimmedText);
+      });
+    cy.xpath("//div[@id='search-users']/div[1]/button[@type='button']").click();
+  }
+
+  getInformasiTambahUMKMBumdes(message) {
+    cy.get("#swal2-content").should("contain.text", message);
+  }
+
+  setDataUMKMBUMDes(namaUMKM, alamat, noWa, deskripsi) {
+    if (!namaUMKM) {
+      cy.get("form#form-add-umkm  input[name='name']").focus().blur();
+    } else {
+      cy.get("form#form-add-umkm  input[name='name']").type(namaUMKM);
+    }
+
+    if (!alamat) {
+      cy.xpath("//form[@id='form-add-umkm']//input[@name='address']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath("//form[@id='form-add-umkm']//input[@name='address']").type(
+
+        alamat
+      );
+    }
+
+    if (!noWa) {
+      cy.xpath("//form[@id='form-add-umkm']//input[@name='wa_number']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath("//form[@id='form-add-umkm']//input[@name='wa_number']").type(
+        noWa
+      );
+    }
+
+    if (!deskripsi) {
+      cy.xpath("//form[@id='form-add-umkm']//textarea[@name='description']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath(
+        "//form[@id='form-add-umkm']//textarea[@name='description']"
+      ).type(deskripsi);
+    }
+  }
+
+  clcikBtnValidationTambahUMKMBumdes(){
+    cy.xpath("//div[@id='modal-add-umkm']//button[@class='btn btn-primary ms-auto']")
+    .invoke("text")
+    .then((text) => {
+      const trimmedText = text.trim();
+      expect("Tambah").to.equal(trimmedText);
+    });
+    cy.xpath("//div[@id='modal-add-umkm']//button[@class='btn btn-primary ms-auto']").click()
   }
 
   // MANAGEMENT BUYER (WARUNG)
@@ -864,7 +1004,7 @@ class DashA_object {
         break;
 
       default:
-        cy.get("#swal2-title").should("contain.text", message);
+        cy.get("#swal2-title, #swal2-content").should("contain.text", message);
         break;
     }
   }
@@ -969,10 +1109,11 @@ class DashA_object {
         .focus()
         .blur();
     } else if (kategori == "fashion") {
-      cy.xpath("//form[@id='form-add-mitra']//input[@name='name']").type(
+      cy.xpath("//form[@id='form-add-mitra']//input[@name='name']").clear().type(
         kategori
       );
     } else {
+      cy.wait(1000)
       cy.xpath("//form[@id='form-add-mitra']//input[@name='name']").type(
         kategori + "-" + random
       );

@@ -75,6 +75,38 @@ When('BUMDesma klik tombol tab Admin BUMDes', () =>{
 Then('BUMDesma melihat list admin bumdesa', () =>{
     dashAPO.onTabBumdesAdmin();
 })
+
+When('BUMDesma klik tombol tambah admin bumdes', () =>{
+    dashAPO.clcikBtnTambahAdminBumdes();
+})
+
+When('BUMDesma memasukkan nama admin {string} email admin {string} nomor wa {string}', (namaAdmin, emailAdmin, noWa) =>{
+    dashAPO.setDataAdminBUMDes(namaAdmin, emailAdmin, noWa);
+})
+
+When('BUMDesma klik tombol validasi tambah admin bumdes', () =>{
+    dashAPO.clcikBtnValidationTambahAdminBumdes();
+})
+
+Then('BUMDesma melihat informasi tambah admin bumdes {string}', (message) => {
+    dashAPO.getInformasiTambahAdminBumdes(message);
+})
+
+When('BUMDesma klik tombol tambah umkm', () =>{
+    dashAPO.clcikBtnTambahUmkmBumdes();
+})
+
+When('BUMDesma memasukkan nama UMKM {string} alamat umkm {string} nomor wa {string} deskripsi {string}', (namaUMKM, alamat, noWa, deskripsi) => {
+    dashAPO.setDataUMKMBUMDes(namaUMKM, alamat, noWa, deskripsi);
+})
+
+When('BUMDesma klik tombol validasi tambah umkm bumdes', () =>{
+    dashAPO.clcikBtnValidationTambahUMKMBumdes();
+})
+
+Then('BUMDesma melihat informasi tambah umkm bumdes {string}', (message) =>{
+    dashAPO.getInformasiTambahUMKMBumdes(message);
+})
 /*END FEATURE OF MENU BUMDES*/
 
 
@@ -124,8 +156,13 @@ Then('BUMDesma beralih halaman overview buyer untuk melihat informasi detail war
 })
 
 Then('BUMDesma melihat halaman laporan inventory warung', () =>{
+    dashAPO.onLaporanWarungInventory();
+})
+
+Then('BUMDesma melihat halaman list inventory warung', () =>{
     dashAPO.onDetailWarungInventory();
 })
+
 /*END FEATURE OF MENU BUYER (MITRA)*/
 
 

@@ -71,7 +71,7 @@ Then('Bumdesa melihat halaman inventory', () => {
 
 
 /*MENU INVENTORY*/
-When('Bumdesa mencari inventory berdasarkan nama produk {string}', (namaProduk)=>{
+When('Bumdesa mencari inventory berdasarkan produk {string}', (namaProduk)=>{
     dashBPO.setSearchInventory(namaProduk)
 })
 
@@ -81,4 +81,97 @@ Then('Bumdesa melihat informasi list inventory yang dicari {string}', (namaProdu
 
 When('Bumdesa klik tombol tambah inventory', () =>{
     dashBPO.clickBtnTambahInventory()
+})
+
+When('Bumdesa memasukkan data inventory {string} {string} {string} {string} {string} {string} {string} {string} {string} {string} {string}', 
+    (namaProduk, halal, hargabeli, hargajual, stok, kategori, sku, deskripsi, maxType, minType, productImg) =>{
+        dashBPO.setInventory(namaProduk, halal, hargabeli, hargajual, stok, kategori, sku, deskripsi, maxType, minType, productImg)
+    }
+)
+
+When('Bumdesa klik tombol validasi tambah data inventory', () =>{
+    dashBPO.clickBtnValidationTambahInventory();
+})
+
+Then('Bumdesa melihat informasi tambah data inventory {string}', (message) =>{
+    dashBPO.getInfromasiTambahInventory(message);
+})
+
+When('Bumdesa klik btn detail untuk melihat stok', () =>{
+    dashBPO.clickBtnDetailStok();
+})
+
+Then('Bumdesa melihat detail list stok masuk dan keluar dari inventory yang dipilih', () =>{
+    dashBPO.onDetailStok();
+})
+
+When('Bumdesa klik tombol tambah stok', () =>{
+    dashBPO.clickBtnTambahStok();
+})
+
+When('Bumdesa mengisi data stok baru {string} {string} {string} {string} {string}', (hBeli, hJual, stok, lokasi, noRak) =>{
+    dashBPO.setTambahStok(hBeli, hJual, stok, lokasi, noRak)
+})
+
+When('Bumdesa klik btn validasi tambah stok', () =>{
+    cy.wait(3000);
+    dashBPO.clickBtnValidStok();
+})
+
+Then('Bumdesa melihat informasi tambah stok {string}', (message) => {
+    cy.wait(3000);
+    dashBPO.getInfromasiTambahStok(message);
+})
+
+
+/*produk display*/
+When('Bumdesa klik btn detail produk', () => {
+    dashBPO.clickBtnDetailProduk()
+})
+
+When('Bumdesa klik tombol tambah produk', () => {
+    dashBPO.clickBtnTambahProdukDisplay()
+})
+
+Then('Bumdesa melihat halaman produk umkm', () =>{
+    dashBPO.onProdukUmkm()
+})
+
+When('Bumdesa memilih produk yang akan didisplay {string} {string} {string}', (produk, lokasi, stok) =>{
+    dashBPO.setProdukDisplay(produk, lokasi, stok)
+    cy.wait(6000);
+})
+
+When('Bumdesa klik tombol validasi display produk', () =>{
+    dashBPO.clcikBtnValidDisplayProduk();
+})
+
+Then('Bumdesa melihat informasi produk display {string}', (message) =>{
+    dashBPO.getInformasiDisplayProduk(message)
+})
+
+
+/*TRANSAKSI*/
+When('Bumdesa klik menu transaksi', () =>{
+    dashBPO.clickMenuTransaksi();
+})
+
+Then('Bumdesa melihat halaman transaksi', () => {
+    dashBPO.onMenuTransaksi();
+})
+
+When('Bumdesa memasukan informasi transaksi yang akan dicari {string}', (infoTransaksi) => {
+    dashBPO.setSearchTransaksi(infoTransaksi)
+})
+
+Then('Bumdesa melihat list transaksi yang dicari {string}', (infoTransksi) =>{
+    dashBPO.getSearchTransaksi(infoTransksi)
+})
+
+When('BUMDesma klik tombol detail transaksi', () => {
+    dashBPO.clickBtnDetailTransaksi()
+})
+
+Then('Bumdesa melihat detail transaksi {string} {string}', (noTransaksi, nominal) =>{
+    dashBPO.onDetailTransaksi(noTransaksi, nominal)
 })

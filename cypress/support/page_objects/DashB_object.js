@@ -8,6 +8,9 @@ class DashB_object {
     "li:nth-of-type(7) > .nav-main-link > .nav-main-link-name",
     "li:nth-of-type(8) > .nav-main-link > .nav-main-link-name",
     "li:nth-of-type(10) > .nav-main-link > .nav-main-link-name",
+    "li:nth-of-type(14) > .nav-main-link > .nav-main-link-name",
+    "li:nth-of-type(15) > .nav-main-link > .nav-main-link-name",
+    "li:nth-of-type(16) > .nav-main-link > .nav-main-link-name",
   ];
 
   onDashboardBUMDesa() {
@@ -224,7 +227,7 @@ class DashB_object {
     }
   }
 
-  //inventory
+  /*Menu Inventory*/
   clickMenuInventory() {
     cy.get(this.menu[3]).click();
   }
@@ -343,17 +346,16 @@ class DashB_object {
       .then((text) => {
         const trimmedText = text.trim();
         expect("Aksi").to.equal(trimmedText);
-      });     
+      });
   }
 
-  /*Menu Inventory*/
-  setSearchInventory(namaProduk){
+  setSearchInventory(namaProduk) {
     cy.xpath(
       "//div[@id='DataTables_Table_0_filter']//input[@type='search']"
     ).type(namaProduk);
   }
 
-  getSearchInventory(namaProduk){
+  getSearchInventory(namaProduk) {
     if (namaProduk == "uwuw") {
       cy.xpath(
         "//table[@id='DataTables_Table_0']//td[@class='dataTables_empty']"
@@ -365,15 +367,542 @@ class DashB_object {
     }
   }
 
-  clickBtnTambahInventory(){
+  clickBtnTambahInventory() {
     cy.xpath("//div[@href='#']/button[@type='button']")
-    .invoke("text")
-    .then((text) => {
-      const trimmedText = text.trim();
-      expect("Tambah Barang").to.equal(trimmedText)
-    });
-    
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tambah Barang").to.equal(trimmedText);
+      });
+
     cy.xpath("//div[@href='#']/button[@type='button']").click();
+  }
+
+  setInventory(
+    namaProduk,
+    halal,
+    hargabeli,
+    hargajual,
+    stok,
+    kategori,
+    sku,
+    deskripsi,
+    maxType,
+    minType,
+    productImg
+  ) {
+    const random = Math.floor(Math.random() * 900) + 100;
+
+    // set Nama produk
+    if (!namaProduk) {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='product_name']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath(
+        "//form[@id='form-add-barang']//input[@name='product_name']"
+      ).type(namaProduk);
+    }
+
+    // set halal
+    if (halal == "halal") {
+      cy.xpath(
+        "//form[@id='form-add-barang']//select[@name='is_halal']"
+      ).select("1");
+    } else {
+      cy.xpath(
+        "//form[@id='form-add-barang']//select[@name='is_halal']"
+      ).select("0");
+    }
+
+    // set harga beli
+    if (!hargabeli) {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='buy_price']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='buy_price']").type(
+        hargabeli
+      );
+    }
+
+    // set harga jual
+    if (!hargajual) {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='sell_price']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='sell_price']").type(
+        hargajual
+      );
+    }
+
+    // set stok
+    if (!stok) {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='stock']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='stock']").type(
+        stok
+      );
+    }
+
+    // set kategori
+    cy.contains("form#form-add-barang  select#kategori", kategori).select(
+      kategori
+    );
+
+    // set SKU (kode)
+    if (!sku) {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='product_code']")
+        .focus()
+        .blur();
+    } else if (sku == 1) {
+      cy.xpath(
+        "//form[@id='form-add-barang']//input[@name='product_code']"
+      ).type(sku);
+    } else {
+      cy.xpath(
+        "//form[@id='form-add-barang']//input[@name='product_code']"
+      ).type(sku + random);
+    }
+
+    // set deskripsi
+    if (!deskripsi) {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='description']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath(
+        "//form[@id='form-add-barang']//input[@name='description']"
+      ).type(deskripsi);
+    }
+
+    // set max type
+    if (!maxType) {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='max_type_unit']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath(
+        "//form[@id='form-add-barang']//input[@name='max_type_unit']"
+      ).type(maxType);
+    }
+
+    // set min type
+    if (!minType) {
+      cy.xpath("//form[@id='form-add-barang']//input[@name='min_type_unit']")
+        .focus()
+        .blur();
+    } else {
+      cy.xpath(
+        "//form[@id='form-add-barang']//input[@name='min_type_unit']"
+      ).type(minType);
+    }
+
+    // set Img produk
+    cy.get("form#form-add-barang  input[name='product_image_file']").attachFile(
+      productImg
+    );
+  }
+
+  clickBtnValidationTambahInventory() {
+    cy.xpath(
+      "//div[@id='modal-add-bumdes']//button[@class='btn btn-primary ms-auto']"
+    ).click();
+  }
+
+  getInformasiTambahInventory(message) {
+    cy.get(".swal2-header").should("contain.text", message);
+  }
+
+  clickBtnDetailStok() {
+    cy.xpath(
+      "/html//table[@id='DataTables_Table_0']//a[@title='Detail']"
+    ).click();
+  }
+
+  onDetailStok() {
+    cy.xpath("//main[@id='main-container']/div[@class='bg-body-light']//h1")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect(trimmedText).to.include("Manajemen Stock");
+      });
+
+    cy.xpath("//main[@id='main-container']//nav//button[@type='button']")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tambah Stock").to.include(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[1]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("No").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[2]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Harga Beli").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[3]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Harga Jual").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[4]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Masuk/Keluar").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[5]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Stok").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[6]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Lokasi").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[7]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("No Rak").to.equal(trimmedText);
+      });
+
+    cy.xpath("/html//table[@id='DataTables_Table_0']/thead/tr/th[8]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Aksi").to.equal(trimmedText);
+      });
+  }
+
+  clickBtnTambahStok() {
+    cy.xpath(
+      "//main[@id='main-container']//nav//button[@type='button']"
+    ).click();
+
+    cy.get("div:nth-of-type(1) > .form-label").should(
+      "contain.text",
+      "Harga Beli"
+    );
+    cy.get("div:nth-of-type(2) > .form-label").should(
+      "contain.text",
+      "Harga Jual"
+    );
+    cy.get("div:nth-of-type(3) > .form-label").should("contain.text", "Stock");
+    cy.get("div:nth-of-type(4) > .form-label").should("contain.text", "Lokasi");
+    cy.get("div:nth-of-type(5) > .form-label").should("contain.text", "No Rak");
+
+    cy.get(".btn.btn-primary.ms-auto")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tambah").to.equal(trimmedText);
+      });
+  }
+
+  setTambahStok(hBeli, hJual, stok, lokasi, noRak) {
+    cy.wait(1000);
+
+    if (!hBeli) {
+      cy.get("input[name='buy_price']").focus().blur();
+    } else {
+      cy.get("input[name='buy_price']").type(hBeli);
+    }
+
+    if (!hJual) {
+      cy.get("input[name='sell_price']").focus().blur();
+    } else {
+      cy.get("input[name='sell_price']").type(hJual);
+    }
+
+    if (!stok) {
+      cy.get("input[name='stock']").focus().blur();
+    } else {
+      cy.get("input[name='stock']").type(stok);
+    }
+
+    if (!lokasi) {
+      cy.get("input[name='lokasi']").focus().blur();
+    } else {
+      cy.get("input[name='lokasi']").type(lokasi);
+    }
+
+    if (!noRak) {
+      cy.get("input[name='no_rak']").focus().blur();
+    } else {
+      cy.get("input[name='no_rak']").type(noRak);
+    }
+  }
+
+  clickBtnValidStok() {
+    // cy.xpath("/html//label[@id='submit-button']").click();
+    cy.get(".modal-footer .btn-primary").click();
+  }
+
+  getInfromasiTambahStok(message) {
+    cy.get(".swal2-header").should("contain.text", message);
+  }
+
+  clickBtnDetailProduk() {
+    cy.xpath(
+      "/html//table[@id='DataTables_Table_0']/tbody/tr[1]/td[@class='text-center']/div[@class='btn-group']/a[@title='Produk']/i"
+    ).click();
+  }
+
+  onProdukUmkm() {
+    cy.xpath("//main[@id='main-container']/div[@class='bg-body-light']//h1")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect(trimmedText).to.include("Produk Umkm");
+      });
+
+    cy.xpath(
+      "//main[@id='main-container']//nav/div[@href='#']/button[@type='button']"
+    )
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tambah Produk").to.include(trimmedText);
+      });
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[1]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("No").to.include(trimmedText);
+      });
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[2]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Gambar").to.include(trimmedText);
+      });
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[3]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Nama Produk").to.include(trimmedText);
+      });
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[4]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Kategori").to.include(trimmedText);
+      });
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[5]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Stok").to.include(trimmedText);
+      });
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[6]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Harga").to.include(trimmedText);
+      });
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[7]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Status").to.include(trimmedText);
+      });
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[8]")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Aksi").to.include(trimmedText);
+      });
+  }
+
+  clickBtnTambahProdukDisplay() {
+    cy.xpath(
+      "//main[@id='main-container']//nav/div[@href='#']/button[@type='button']"
+    )
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tambah Produk").to.include(trimmedText);
+      });
+
+    cy.xpath(
+      "//main[@id='main-container']//nav/div[@href='#']/button[@type='button']"
+    ).click();
+
+    cy.get("form[method='post']  .modal-title")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Tambah Produk").to.include(trimmedText);
+      });
+
+    cy.get(".col-lg-12 > div:nth-of-type(1) > label")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Produk:").to.include(trimmedText);
+      });
+
+    cy.get(".col-lg-12 > div:nth-of-type(2) > label:nth-of-type(2)")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Lokasi / No. Rak:").to.include(trimmedText);
+      });
+
+    cy.get(".col-lg-12 > div:nth-of-type(2) > label:nth-of-type(3)")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Stok Tersedia:").to.include(trimmedText);
+      });
+
+    cy.get(".col-lg-12 > div:nth-of-type(3) > label")
+      .invoke("text")
+      .then((text) => {
+        const trimmedText = text.trim();
+        expect("Stok:").to.include(trimmedText);
+      });
+  }
+
+  setProdukDisplay(produk, lokasi, stok) {
+    cy.contains("select[name='id_inventori']", produk).select(produk);
+
+    cy.contains("select#lokasi_stock", lokasi).select(lokasi);
+
+    cy.get("input#stock_create").type(stok)
+  }
+
+  clcikBtnValidDisplayProduk(){
+    cy.get("form[method='post']  .btn.btn-primary").click()
+  }
+
+  getInformasiDisplayProduk(message){
+    cy.get(".swal2-content").should("contain.text", message);
+  }
+
+  //transaksi
+  clickMenuTransaksi(){
+    cy.get(this.menu[4]).click()
+  }
+
+  onMenuTransaksi(){
+    cy.xpath("//main[@id='main-container']//h1[1]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("daftar transaksi").to.equal(trimmedtext.toLowerCase())
+    })
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[1]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("no").to.equal(trimmedtext.toLowerCase())
+    })
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[2]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("invoice").to.equal(trimmedtext.toLowerCase())
+    })
+    
+    cy.xpath("//table[@id='DataTables_Table_0']//th[3]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("tanggal dibuatnya invoice").to.equal(trimmedtext.toLowerCase())
+    })
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[4]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("nominal").to.equal(trimmedtext.toLowerCase())
+    })
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[5]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("kurir").to.equal(trimmedtext.toLowerCase())
+    })
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[6]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("status pembayaran").to.equal(trimmedtext.toLowerCase())
+    })
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[7]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("status pengiriman").to.equal(trimmedtext.toLowerCase())
+    })
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[8]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("metode pembayaran").to.equal(trimmedtext.toLowerCase())
+    })
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[9]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("dibayar pada").to.equal(trimmedtext.toLowerCase())
+    })
+
+    cy.xpath("//table[@id='DataTables_Table_0']//th[10]").invoke("text").then((text) =>{
+      const trimmedtext = text.trim();
+      expect("dibatalkan?").to.equal(trimmedtext.toLowerCase())
+    })
+  }
+  
+  setSearchTransaksi(infoTransaksi){
+    cy.xpath("//input[@type='search']").type(infoTransaksi)
+  }
+
+  getSearchTransaksi(infoTransaksi){
+    if (infoTransaksi == "INO") {
+      cy.xpath("//table[@id='DataTables_Table_0']//td[@class='dataTables_empty']")
+        .should("have.text", "No matching records found");
+    } else {
+      cy.xpath("//table[@id='DataTables_Table_0']//td[2] | //table[@id='DataTables_Table_0']//td[3] | //table[@id='DataTables_Table_0']//td[4]")  
+        .contains(infoTransaksi)
+        .should(`be.visible`);
+    }
+  }
+
+  clickBtnDetailTransaksi(){
+    cy.get(".btn.btn-primary.btn-sm.m-1").click()
+  }
+
+  onDetailTransaksi(noTransaksi, nominal){
+    cy.xpath("//main[@id='main-container']//h1[1]").should("contain.text", noTransaksi)
+
+    cy.xpath("//main[@id='main-container']/div[2]/div[1]//h3").should("contain.text".toUpperCase, "INFORMASI PEMBELI")
+    cy.xpath("//main[@id='main-container']/div[2]/div[2]//h3").should("contain.text".toUpperCase, "INFORMASI TRANSAKSI")
+    cy.xpath("//main[@id='main-container']/div[2]/div[3]//h3").should("contain.text".toUpperCase, "DAFTAR BARANG")
+    
+    cy.xpath("/html//main[@id='main-container']/div[2]//a[@href='javascript:void(0)']/div//div[@class='fs-sm text-muted']")
+    .invoke("text")
+    .then((text) =>{
+      const trimmedtext = text.trim();
+      expect(trimmedtext).to.include(nominal)
+    })
   }
 }
 export default DashB_object;

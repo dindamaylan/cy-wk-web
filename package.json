@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "landing-regression-hs": "cypress run --browser chrome --spec 'cypress/e2e/landingPage/landingPage.feature'",
     "login-regression-hs": "cypress run --browser chrome --spec 'cypress/e2e/authUser/Login.feature'",
     "register-regression-hs": "cypress run --browser chrome --spec 'cypress/e2e/authUser/Register.feature'",
     "bumdesma-regression-hs": "cypress run --browser chrome --spec 'cypress/e2e/bumdesma/Bumdesma.feature'",

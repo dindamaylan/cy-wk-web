@@ -67,6 +67,7 @@ Feature: Bumdesa
             | dupe wet brush |
             | uwuw           |
 
+    @only
     Scenario: Bumdesa menambah data inventory
         When Bumdesa klik menu inventory
         And Bumdesa klik tombol tambah inventory

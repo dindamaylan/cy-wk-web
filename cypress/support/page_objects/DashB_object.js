@@ -514,7 +514,7 @@ class DashB_object {
   }
 
   getInformasiTambahInventory(message) {
-    cy.get(".swal2-header").should("contain.text", message);
+    cy.get(".swal2-content").should("contain.text", message);
   }
 
   clickBtnDetailStok() {

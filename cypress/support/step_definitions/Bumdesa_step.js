@@ -94,7 +94,7 @@ When('Bumdesa klik tombol validasi tambah data inventory', () =>{
 })
 
 Then('Bumdesa melihat informasi tambah data inventory {string}', (message) =>{
-    dashBPO.getInfromasiTambahInventory(message);
+    dashBPO.getInformasiTambahInventory(message);
 })
 
 When('Bumdesa klik btn detail untuk melihat stok', () =>{
